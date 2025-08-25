@@ -6,7 +6,7 @@ from sentence_transformers import SentenceTransformer, util
 # App Config
 # ---------------------------
 st.set_page_config(
-    page_title="AI Chatbot v2",
+    page_title="The AI Chatbot",
     page_icon="🤖",
     layout="centered"
 )
@@ -44,12 +44,12 @@ with st.sidebar:
     st.markdown("- Streamlit 🎨")
     st.markdown("- Sentence Transformers 🤖")
     st.markdown("---")
-    st.caption("Project by [Your Name]")
+    st.caption("👨‍💻 Developed by **Arpinderjit Singh**")
 
 # ---------------------------
 # Main Chat UI
 # ---------------------------
-st.title("🌙 Dark Themed AI Chatbot")
+st.title("🤖 The AI Chatbot")
 st.markdown("### Ask me anything below ⬇️")
 
 # Chat history
