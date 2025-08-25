@@ -1,57 +1,77 @@
 import streamlit as st
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
-import numpy as np
+from sentence_transformers import SentenceTransformer, util
 
-st.set_page_config(page_title="Simple Chatbot", page_icon="🤖")
+# ---------------------------
+# App Config
+# ---------------------------
+st.set_page_config(
+    page_title="The AI Chatbot",
+    page_icon="🤖",
+    layout="centered"
+)
 
-st.title("🤖 My Simple Chatbot")
-st.write("Type a question below and I'll try to answer!")
+# ---------------------------
+# Load Model
+# ---------------------------
+@st.cache_resource
+def load_model():
+    return SentenceTransformer("all-MiniLM-L6-v2")
 
-# Knowledge base: Q&A pairs
-qa_pairs = [
-    ("hi", "Hello! How can I help you today?"),
-    ("hello", "Hi there! What can I do for you?"),
-    ("hey", "Hey! Need any help?"),
-    ("what is your name", "I'm SimpleBot, your friendly chatbot 🤖"),
-    ("who made you", "I was created as a simple demo in Python + Streamlit."),
-    ("what can you do", "I can answer basic questions you teach me via Q&A pairs."),
-    ("what are your hours", "We're open 9am–5pm, Monday to Friday."),
-    ("when are you open", "We're open 9am–5pm, Monday to Friday."),
-    ("how much does it cost", "Basic plan is free, Pro is $10/month."),
-    ("what is the price", "Basic plan is free, Pro is $10/month."),
-    ("do you offer support", "Yes! Basic email support for all users."),
-    ("where are you located", "We're fully online 🌐"),
-    ("bye", "Goodbye! Have a great day! 👋"),
-]
+model = load_model()
 
-# Build TF-IDF model
-questions = [q for q, a in qa_pairs]
-answers = [a for q, a in qa_pairs]
-vectorizer = TfidfVectorizer().fit(questions)
-question_matrix = vectorizer.transform(questions)
+# ---------------------------
+# Knowledge Base
+# ---------------------------
+knowledge_base = {
+    "What is your name?": "🤖 I am a smart AI chatbot built with Python and Streamlit.",
+    "How are you?": "😃 I am doing great, thank you! How about you?",
+    "What is AI?": "💡 Artificial Intelligence is the simulation of human intelligence in machines.",
+    "Tell me a joke": "😂 Why did the computer show up at work late? Because it caught a virus!"
+}
 
-def get_response(user_input, threshold=0.2):
-    vec = vectorizer.transform([user_input])
-    sims = cosine_similarity(vec, question_matrix)[0]
-    best_idx = int(np.argmax(sims))
-    best_score = float(sims[best_idx])
+questions = list(knowledge_base.keys())
+answers = list(knowledge_base.values())
+question_embeddings = model.encode(questions, convert_to_tensor=True)
 
-    if best_score < threshold:
-        return "I didn't quite get that. Can you rephrase?"
-    return answers[best_idx]
+# ---------------------------
+# Sidebar
+# ---------------------------
+with st.sidebar:
+    st.title("⚙️ About this Chatbot")
+    st.write("Built with:")
+    st.markdown("- Python 🐍")
+    st.markdown("- Streamlit 🎨")
+    st.markdown("- Sentence Transformers 🤖")
+    st.markdown("---")
+    st.caption("👨‍💻 Developed by **Arpinderjit Singh**")
 
-# Chat interface
-if "messages" not in st.session_state:
-    st.session_state.messages = []
+# ---------------------------
+# Main Chat UI
+# ---------------------------
+st.title("🤖 The AI Chatbot")
+st.markdown("### Ask me anything below ⬇️")
 
-for msg in st.session_state.messages:
-    st.chat_message(msg["role"]).markdown(msg["content"])
+# Chat history
+if "history" not in st.session_state:
+    st.session_state.history = []
 
-if prompt := st.chat_input("Ask me something..."):
-    st.session_state.messages.append({"role": "user", "content": prompt})
-    st.chat_message("user").markdown(prompt)
+# User input (chat-style)
+user_input = st.chat_input("Type your question...")
 
-    response = get_response(prompt)
-    st.session_state.messages.append({"role": "assistant", "content": response})
-    st.chat_message("assistant").markdown(response)
+if user_input:
+    # Save user message
+    st.session_state.history.append({"role": "user", "content": user_input})
+
+    # Generate bot response
+    user_embedding = model.encode(user_input, convert_to_tensor=True)
+    similarity_scores = util.cos_sim(user_embedding, question_embeddings)
+    best_match_idx = similarity_scores.argmax().item()
+    response = answers[best_match_idx]
+
+    # Save bot message
+    st.session_state.history.append({"role": "assistant", "content": response})
+
+# Display all messages
+for chat in st.session_state.history:
+    with st.chat_message(chat["role"]):
+        st.markdown(chat["content"])
