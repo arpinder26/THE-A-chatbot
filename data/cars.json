@@ -1,0 +1,162 @@
+[
+  {
+    "brand": "Maruti Suzuki",
+    "model": "Swift",
+    "engine": "1197 cc",
+    "power": "89 bhp",
+    "mileage": "22.4 kmpl",
+    "price": "₹5.99 – ₹9.03 Lakh"
+  },
+  {
+    "brand": "Maruti Suzuki",
+    "model": "Baleno",
+    "engine": "1197 cc",
+    "power": "89 bhp",
+    "mileage": "22.9 kmpl",
+    "price": "₹6.61 – ₹9.88 Lakh"
+  },
+  {
+    "brand": "Hyundai",
+    "model": "i20",
+    "engine": "1197 cc",
+    "power": "82 bhp",
+    "mileage": "21 kmpl",
+    "price": "₹7.04 – ₹11.21 Lakh"
+  },
+  {
+    "brand": "Tata",
+    "model": "Altroz",
+    "engine": "1199 cc",
+    "power": "85 bhp",
+    "mileage": "19 kmpl",
+    "price": "₹6.60 – ₹10.74 Lakh"
+  },
+  {
+    "brand": "Hyundai",
+    "model": "Creta",
+    "engine": "1497 cc",
+    "power": "113 bhp",
+    "mileage": "16.8 kmpl",
+    "price": "₹11 – ₹19.20 Lakh"
+  },
+  {
+    "brand": "Kia",
+    "model": "Seltos",
+    "engine": "1497 cc",
+    "power": "113 bhp",
+    "mileage": "16.8 kmpl",
+    "price": "₹10.90 – ₹20.35 Lakh"
+  },
+  {
+    "brand": "Tata",
+    "model": "Nexon",
+    "engine": "1199 cc",
+    "power": "118 bhp",
+    "mileage": "17 kmpl",
+    "price": "₹8.10 – ₹15.50 Lakh"
+  },
+  {
+    "brand": "Mahindra",
+    "model": "XUV300",
+    "engine": "1197 cc",
+    "power": "109 bhp",
+    "mileage": "17 kmpl",
+    "price": "₹8.41 – ₹14.60 Lakh"
+  },
+  {
+    "brand": "Mahindra",
+    "model": "XUV700",
+    "engine": "1999 cc",
+    "power": "197 bhp",
+    "mileage": "15 kmpl",
+    "price": "₹14.03 – ₹26.57 Lakh"
+  },
+  {
+    "brand": "Hyundai",
+    "model": "Venue",
+    "engine": "1197 cc",
+    "power": "82 bhp",
+    "mileage": "18 kmpl",
+    "price": "₹7.89 – ₹13.48 Lakh"
+  },
+  {
+    "brand": "Maruti Suzuki",
+    "model": "Brezza",
+    "engine": "1462 cc",
+    "power": "102 bhp",
+    "mileage": "19.8 kmpl",
+    "price": "₹8.29 – ₹14.14 Lakh"
+  },
+  {
+    "brand": "Toyota",
+    "model": "Innova Hycross",
+    "engine": "1987 cc",
+    "power": "184 bhp",
+    "mileage": "16 kmpl",
+    "price": "₹18.82 – ₹30.26 Lakh"
+  },
+  {
+    "brand": "Kia",
+    "model": "Carens",
+    "engine": "1497 cc",
+    "power": "113 bhp",
+    "mileage": "16.5 kmpl",
+    "price": "₹10.45 – ₹18.95 Lakh"
+  },
+  {
+    "brand": "Honda",
+    "model": "City",
+    "engine": "1498 cc",
+    "power": "119 bhp",
+    "mileage": "17.8 kmpl",
+    "price": "₹11.82 – ₹16.30 Lakh"
+  },
+  {
+    "brand": "Skoda",
+    "model": "Slavia",
+    "engine": "999 cc",
+    "power": "114 bhp",
+    "mileage": "19.5 kmpl",
+    "price": "₹11.53 – ₹19.13 Lakh"
+  },
+  {
+    "brand": "Volkswagen",
+    "model": "Virtus",
+    "engine": "999 cc",
+    "power": "114 bhp",
+    "mileage": "19 kmpl",
+    "price": "₹11.55 – ₹19.15 Lakh"
+  },
+  {
+    "brand": "Tata",
+    "model": "Punch",
+    "engine": "1199 cc",
+    "power": "85 bhp",
+    "mileage": "20 kmpl",
+    "price": "₹6 – ₹10.10 Lakh"
+  },
+  {
+    "brand": "Tata",
+    "model": "Tiago EV",
+    "engine": "Electric",
+    "power": "73 bhp",
+    "mileage": "250–315 km/charge",
+    "price": "₹8.69 – ₹12.04 Lakh"
+  },
+  {
+    "brand": "MG",
+    "model": "ZS EV",
+    "engine": "Electric",
+    "power": "174 bhp",
+    "mileage": "461 km/charge",
+    "price": "₹18.98 – ₹25.08 Lakh"
+  },
+  {
+    "brand": "BYD",
+    "model": "Atto 3",
+    "engine": "Electric",
+    "power": "201 bhp",
+    "mileage": "521 km/charge",
+    "price": "₹33.99 Lakh"
+  }
+]
